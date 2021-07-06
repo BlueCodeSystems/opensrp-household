@@ -21,7 +21,11 @@ gpr.key=YOUR_PERSONAL_ACCESS_TOKEN
 
 **Step 3** : Update `build.gradle` for the application module
 
-```groovy def githubProperties = new Properties() //Read the github properties content githubProperties.load(new FileInputStream(rootProject.file("local.properties")))    
+```groovy 
+
+ def githubProperties = new Properties() //Read the github properties content 
+ githubProperties.load(new FileInputStream(rootProject.file("local.properties")))    
+ 
  android {    
     //...    
     // include inside the android closure    
