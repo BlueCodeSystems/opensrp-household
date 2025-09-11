@@ -9,4 +9,6 @@ before_install:
 install:
   - chmod +x gradlew
   - OWNER=$(git config --get remote.origin.url | sed -E 's#.*[:/ ]([^/]+)/[^/]+(\.git)?$#\1#'); echo "Using GROUP=com.github.${OWNER} VERSION=${VERSION} (skipSigning)"
-  - ./gradlew --no-daemon -x test -x lint -PskipSigning=true -PGROUP=com.github.${OWNER} -PVERSION_NAME=${VERSION} publishToMavenLocal
+  - ./gradlew --no-daemon -x test -x lint -PskipSigning=true -PGROUP=com.github.${OWNER} -PVERSION_NAME=${VERSION} :opensrp-household:publishToMavenLocal
+  # Verify artifacts landed in local Maven (~/.m2/repository)
+  - REPO_PATH="$HOME/.m2/repository/com/github/${OWNER}/opensrp-client-household/${VERSION}"; echo "Verifying: ${REPO_PATH}"; ls -la "${REPO_PATH}" || (echo "Artifacts not found at ${REPO_PATH}" && exit 1)
