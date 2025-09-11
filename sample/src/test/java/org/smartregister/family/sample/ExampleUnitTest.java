@@ -1,4 +1,4 @@
-package org.sample.family.sample;
+package org.smartregister.family.sample;
 
 import org.junit.Test;
 
