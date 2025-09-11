@@ -185,7 +185,7 @@ public class FamilyDueRegisterProvider implements RecyclerViewProvider<FamilyDue
 
     @Override
     public RecyclerView.ViewHolder createFooterHolder(ViewGroup parent) {
-        View view = inflater.inflate(R.layout.smart_register_pagination, parent, false);
+        View view = inflater.inflate(org.smartregister.R.layout.smart_register_pagination, parent, false);
         if (Utils.metadata().familyDueRegister.showPagination) {
             view.setVisibility(View.VISIBLE);
         } else {

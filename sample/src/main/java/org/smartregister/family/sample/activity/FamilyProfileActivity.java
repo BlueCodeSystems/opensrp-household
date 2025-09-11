@@ -17,6 +17,21 @@ import org.smartregister.family.util.Constants;
 public class FamilyProfileActivity extends BaseFamilyProfileActivity {
 
     @Override
+    public String getIntentString(String key) {
+        return getIntent() != null ? getIntent().getStringExtra(key) : null;
+    }
+
+    @Override
+    public void hideProgressDialog() {
+        // No blocking progress dialog in this sample
+    }
+
+    @Override
+    public void showProgressDialog(int messageResourceId) {
+        // Not used in this sample
+    }
+
+    @Override
     protected void initializePresenter() {
         String familyBaseEntityId = getIntent().getStringExtra(Constants.INTENT_KEY.FAMILY_BASE_ENTITY_ID);
         String familyHead = getIntent().getStringExtra(Constants.INTENT_KEY.FAMILY_HEAD);
@@ -25,7 +40,7 @@ public class FamilyProfileActivity extends BaseFamilyProfileActivity {
         presenter = new BaseFamilyProfilePresenter(this, new BaseFamilyProfileModel(familyName), familyBaseEntityId, familyHead, primaryCaregiver, familyName);
     }
 
-    @Override
+    // Helper to set up the pager; not overriding a base method
     protected ViewPager setupViewPager(ViewPager viewPager) {
         adapter = new ViewPagerAdapter(getSupportFragmentManager());
 

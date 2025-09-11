@@ -31,14 +31,11 @@ public class FamilyOtherMemberProfileFragment extends BaseFamilyOtherMemberProfi
     @Override
     protected void onViewClicked(View view) {
         super.onViewClicked(view);
-        switch (view.getId()) {
-            case R.id.patient_column:
-                if (view.getTag() != null) { // && view.getTag(org.smartregister.family.R.id.VIEW_ID) == CLICK_VIEW_NORMAL) {
-                    getActivity().finish();
-                }
-                break;
-            default:
-                break;
+        int id = view.getId();
+        if (id == org.smartregister.family.R.id.patient_column) {
+            if (view.getTag() != null) { // && view.getTag(org.smartregister.family.R.id.VIEW_ID) == CLICK_VIEW_NORMAL) {
+                getActivity().finish();
+            }
         }
     }
 

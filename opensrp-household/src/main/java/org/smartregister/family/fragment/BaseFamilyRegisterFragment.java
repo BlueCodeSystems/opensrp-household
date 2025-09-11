@@ -48,7 +48,7 @@ public abstract class BaseFamilyRegisterFragment extends BaseRegisterFragment im
         searchBarLayout.setBackgroundResource(R.color.customAppThemeBlue);
 
         if (getSearchView() != null) {
-            getSearchView().setBackgroundResource(R.color.white);
+            getSearchView().setBackgroundResource(android.R.color.white);
             getSearchView().setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_action_search, 0, 0, 0);
         }
 

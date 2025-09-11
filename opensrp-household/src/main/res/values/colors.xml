@@ -18,4 +18,5 @@
 
     <color name="other_member_profile_bg">#FAFAFA</color>
     <color name="due_profile_blue">#218CC5</color>
+    <color name="customAppThemeBlue">#3797ca</color>
 </resources>

@@ -7,7 +7,8 @@ buildscript {
     }
 
     dependencies {
-        classpath "io.codearte.gradle.nexus:gradle-nexus-staging-plugin:0.11.0"
+        classpath 'com.android.tools.build:gradle:8.11.1'
+        // Removed legacy nexus-staging plugin (uses removed MavenPlugin on Gradle 7+)
         classpath 'gradle.plugin.org.kt3k.gradle.plugin:coveralls-gradle-plugin:2.10.2'
     }
 }
@@ -31,11 +32,11 @@ subprojects {
 
     group = 'org.smartregister'
 
-    ext.androidToolsBuildGradle     = '29.0.3'
-    ext.androidBuildToolsVersion    = '29.0.3'
-    ext.androidMinSdkVersion        = 18
-    ext.androidCompileSdkVersion    = 28
-    ext.androidTargetSdkVersion     = 28
+    ext.androidToolsBuildGradle     = '33.0.2'
+    ext.androidBuildToolsVersion    = '33.0.2'
+    ext.androidMinSdkVersion        = 19
+    ext.androidCompileSdkVersion    = 33
+    ext.androidTargetSdkVersion     = 33
 
     ext.androidAnnotationsVersion = '3.0.1'
     ext.androidAnnotationsAPIVersion = '3.0.1'
@@ -55,27 +56,21 @@ subprojects {
         mavenLocal()
     }
 
-    // Improve build server performance by allowing disabling of pre-dexing
-    // (see http://tools.android.com/tech-docs/new-build-system/tips#TOC-Improving-Build-Server-performance.)
-    project.plugins.whenPluginAdded { plugin ->
-        if("com.android.build.gradle.AppPlugin".equals(plugin.class.name)) {
-            project.android.dexOptions.preDexLibraries = rootProject.ext.preDexLibs
-        } else if ("com.android.build.gradle.LibraryPlugin".equals(plugin.class.name)) {
-            project.android.dexOptions.preDexLibraries = rootProject.ext.preDexLibs
-        }
-    }
+    // Remove legacy preDex configuration: dexOptions is not supported in AGP 7+
 }
 
 apply plugin : 'java'
-apply plugin : 'build-dashboard'
-apply plugin: 'io.codearte.nexus-staging'
+// Removed: legacy 'io.codearte.nexus-staging' plugin incompatible with Gradle 7+
 
-buildDashboard {
-    reports.html.setDestination(file("build/"))
+// Removed build-dashboard plugin and configuration (removed in Gradle 8)
+
+// Gradle 8+: use `required` instead of deprecated `enabled`
+tasks.withType(Test).configureEach {
+    reports {
+        html.required.set(false)
+        junitXml.required.set(false)
+    }
 }
-
-test.reports.html.enabled = false
-test.reports.junitXml.enabled = false
 
 
 def isReleaseBuild() {

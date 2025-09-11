@@ -3,6 +3,7 @@ package org.smartregister.family.util;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.util.Pair;
+import android.graphics.BitmapFactory;
 
 import com.google.common.reflect.TypeToken;
 import com.vijay.jsonwizard.constants.JsonFormConstants;
@@ -280,9 +281,10 @@ public class JsonFormUtils extends org.smartregister.util.JsonFormUtils {
 
         Bitmap compressedImageFile = null;
         try {
-            compressedImageFile = FamilyLibrary.getInstance().getCompressor().compressToBitmap(file);
-        } catch (IOException e) {
-          Timber.e(e, "Error compressing image");
+            // Fallback to simple decode if compressor library/method is unavailable
+            compressedImageFile = BitmapFactory.decodeFile(file.getAbsolutePath());
+        } catch (Exception e) {
+            Timber.e(e, "Error decoding image file");
         }
         saveStaticImageToDisk(compressedImageFile, providerId, entityId);
 

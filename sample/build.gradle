@@ -1,16 +1,9 @@
-buildscript {
-    repositories {
-        google()
-        jcenter()
-    }
-    dependencies {
-        classpath 'com.android.tools.build:gradle:4.0.0'
-    }
-}
-
+// Buildscript moved to root; AGP provided by root build.gradle
 allprojects {
     repositories {
         maven { url 'https://oss.sonatype.org/content/repositories/snapshots/' }
+        google()
+        mavenCentral()
         mavenLocal()
     }
 }
@@ -18,13 +11,15 @@ allprojects {
 apply plugin: 'com.android.application'
 
 android {
+    // AGP 8 requires explicit namespace
+    namespace 'org.smartregister.family.sample'
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
 
     compileSdkVersion androidCompileSdkVersion
-    buildToolsVersion androidBuildToolsVersion
 
     defaultConfig {
         applicationId "org.smartregister.family.sample"
@@ -34,13 +29,10 @@ android {
         versionName "1.0"
         multiDexEnabled true
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
-        javaCompileOptions.annotationProcessorOptions.includeCompileClasspath = true
-
     }
 
-    dexOptions {
-        preDexLibraries = false
-        javaMaxHeapSize "4g"
+    buildFeatures {
+        buildConfig = true
     }
 
     buildTypes {
@@ -56,46 +48,19 @@ android {
     }
 
     packagingOptions {
-        exclude 'META-INF/*'
-        exclude 'LICENSE.txt'
+        resources {
+            excludes += ['META-INF/*', 'LICENSE.txt']
+        }
     }
 
-    lintOptions {
-        checkReleaseBuilds false
+    lint {
+        checkReleaseBuilds = false
         disable 'MissingTranslation'
-        checkReleaseBuilds false
-        abortOnError false
+        abortOnError = false
     }
-
 }
 
 dependencies {
-    implementation('org.smartregister:opensrp-client-core:4.0.4-SNAPSHOT@aar') {
-        transitive = true
-        exclude group: 'com.github.bmelnychuk', module: 'atv'
-        exclude group: 'com.google.guava', module: 'guava'
-        exclude group: 'com.android.support', module: 'appcompat-v7'
-        exclude group: 'com.android.support', module: 'design'
-        exclude group: 'com.android.support', module: 'recyclerview-v7'
-        exclude group: 'com.github.johnkil.print', module: 'print'
-        exclude group: 'org.apache.httpcomponents', module: 'httpmime'
-    }
-
-
-    implementation('org.smartregister:opensrp-client-native-form:1.9.0-SNAPSHOT@aar') {
-        transitive = true
-        exclude group: 'com.android.support', module: 'recyclerview-v7'
-        exclude group: 'com.android.support', module: 'appcompat-v7'
-        exclude group: 'com.android.support', module: 'cardview-v7'
-    }
-
-    implementation('org.smartregister:opensrp-client-configurable-views:1.1.5-SNAPSHOT@aar') {
-        transitive = true
-        exclude group: 'org.smartregister', module: 'opensrp-client-core'
-        exclude group: 'org.smartregister', module: 'opensrp-client-native-form'
-        exclude group: 'com.android.support', module: 'appcompat-v7'
-    }
-
     implementation project(':opensrp-household')
 
     implementation 'org.jbundle.util.osgi.wrapped:org.jbundle.util.osgi.wrapped.org.apache.http.client:4.1.2'

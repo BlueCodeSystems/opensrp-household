@@ -229,7 +229,7 @@ public class FamilyMemberRegisterProvider implements RecyclerViewProvider<Family
 
     @Override
     public RecyclerView.ViewHolder createFooterHolder(ViewGroup parent) {
-        View view = inflater.inflate(R.layout.smart_register_pagination, parent, false);
+        View view = inflater.inflate(org.smartregister.R.layout.smart_register_pagination, parent, false);
         return new FooterViewHolder(view);
     }
 

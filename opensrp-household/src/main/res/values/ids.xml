@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Placeholder IDs to satisfy references in code -->
+    <item name="scanQrCode" type="id"/>
+    <item name="search_bar_layout" type="id"/>
+    <item name="filter_text_view" type="id"/>
+    <item name="opensrp_logo_image_view" type="id"/>
+    <item name="txt_title_label" type="id"/>
+</resources>

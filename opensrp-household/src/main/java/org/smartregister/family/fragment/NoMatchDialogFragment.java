@@ -87,7 +87,6 @@ public class NoMatchDialogFragment extends DialogFragment {
             } else if (view.getId() == R.id.go_to_advanced_search) {
                 baseRegisterActivity.setSearchTerm("");
                 goToAdvancedSearch(uniqueId);
-                baseRegisterActivity.setSelectedBottomBarMenuItem(R.id.action_search);
                 dismiss();
             }
         }

@@ -85,10 +85,8 @@ public abstract class BaseFamilyRegisterActivity extends BaseRegisterActivity im
 
         if (bottomNavigationView != null) {
             bottomNavigationView.setLabelVisibilityMode(LabelVisibilityMode.LABEL_VISIBILITY_LABELED);
-            bottomNavigationView.getMenu().removeItem(R.id.action_clients);
-            bottomNavigationView.getMenu().removeItem(R.id.action_register);
-            bottomNavigationView.getMenu().removeItem(R.id.action_search);
-            bottomNavigationView.getMenu().removeItem(R.id.action_library);
+            // Clear any pre-existing menu items from the base layout before inflating our menu
+            bottomNavigationView.getMenu().clear();
 
             bottomNavigationView.inflateMenu(R.menu.bottom_nav_family_menu);
 
