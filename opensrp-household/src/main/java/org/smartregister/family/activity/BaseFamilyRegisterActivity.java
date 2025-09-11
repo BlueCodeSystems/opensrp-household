@@ -4,7 +4,6 @@ import android.content.Intent;
 import com.google.android.material.bottomnavigation.LabelVisibilityMode;
 
 import com.vijay.jsonwizard.constants.JsonFormConstants;
-import com.vijay.jsonwizard.domain.Form;
 
 import org.json.JSONObject;
 import org.smartregister.AllConstants;
@@ -48,13 +47,8 @@ public abstract class BaseFamilyRegisterActivity extends BaseRegisterActivity im
         Intent intent = new Intent(this, Utils.metadata().familyFormActivity);
         intent.putExtra(Constants.JSON_FORM_EXTRA.JSON, jsonForm.toString());
 
-        Form form = new Form();
-        form.setName(getString(R.string.add_fam));
-        form.setActionBarBackground(R.color.family_actionbar);
-        form.setNavigationBackground(R.color.family_navigation);
-        form.setHomeAsUpIndicator(R.mipmap.ic_cross_white);
-        form.setPreviousLabel(getResources().getString(R.string.back));
-        intent.putExtra(JsonFormConstants.JSON_FORM_KEY.FORM, form);
+        // Newer JsonWizard versions don’t require/expose Form styling via object extra
+        // Rely on default theming; keep only the JSON payload extra
 
         startActivityForResult(intent, JsonFormUtils.REQUEST_CODE_GET_JSON);
     }

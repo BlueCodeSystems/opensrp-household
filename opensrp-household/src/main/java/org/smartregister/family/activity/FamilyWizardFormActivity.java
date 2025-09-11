@@ -29,9 +29,8 @@ public class FamilyWizardFormActivity extends JsonWizardFormActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        // Some versions of JsonWizardFormActivity may not expose these APIs; provide no-op fallbacks
-        setConfirmCloseTitle("getString(R.string.confirm_form_close)");
-        setConfirmCloseMessage("getString(R.string.confirm_form_close_explanation)");
+        setConfirmCloseTitle(getString(R.string.confirm_form_close));
+        setConfirmCloseMessage(getString(R.string.confirm_form_close_explanation));
 
         try {
             JSONObject form = new JSONObject(currentJsonState());
@@ -44,10 +43,7 @@ public class FamilyWizardFormActivity extends JsonWizardFormActivity {
         }
     }
 
-    // Fallback stubs in case base class does not provide these methods in this version
-    public void setConfirmCloseTitle(String title) { /* no-op fallback */ }
-    public void setConfirmCloseMessage(String message) { /* no-op fallback */ }
-    public String currentJsonState() { return "{}"; }
+    // Methods provided by JsonWizardFormActivity
 
     @Override
     public void setSupportActionBar(@Nullable Toolbar toolbar) {
@@ -80,4 +76,3 @@ public class FamilyWizardFormActivity extends JsonWizardFormActivity {
         applyOverrideConfiguration(newConfiguration);
     }
 }
-

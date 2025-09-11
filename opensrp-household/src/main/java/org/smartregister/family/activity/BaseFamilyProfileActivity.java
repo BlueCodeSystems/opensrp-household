@@ -11,7 +11,6 @@ import android.view.MenuItem;
 import android.widget.TextView;
 
 import com.vijay.jsonwizard.constants.JsonFormConstants;
-import com.vijay.jsonwizard.domain.Form;
 
 import org.json.JSONObject;
 import org.smartregister.AllConstants;
@@ -134,10 +133,7 @@ public abstract class BaseFamilyProfileActivity extends BaseProfileActivity impl
         intent.putExtra(Constants.JSON_FORM_EXTRA.JSON, jsonForm.toString());
 
 
-        Form form = new Form();
-        form.setActionBarBackground(R.color.family_actionbar);
-        form.setWizard(false);
-        intent.putExtra(JsonFormConstants.JSON_FORM_KEY.FORM, form);
+        // Newer JsonWizard versions may not accept a Form object. Use defaults.
 
 
         startActivityForResult(intent, JsonFormUtils.REQUEST_CODE_GET_JSON);

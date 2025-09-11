@@ -45,6 +45,8 @@
 
     <!-- warning -->
     <string name="any_changes_you_make">Any changes you have made will be lost</string>
+    <string name="confirm_form_close">Close form?</string>
+    <string name="confirm_form_close_explanation">Any changes you have made will be lost</string>
 
     <string name="back">BACK</string>
 
