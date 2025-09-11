@@ -7,90 +7,59 @@
 # OpenSRP Client Household
 OpenSRP Client Household Library - Fork of OpenSRP Client Family Module
 
-### Download Dependency from GitHub Packages)
+### Get it from JitPack
 
-This library is currently available as a [Git Package](https://github.com/BlueCodeSystems/opensrp-client-household/packages).
+This library is published via [JitPack](https://jitpack.io/#BlueCodeSystems/opensrp-client-household).
 
-At the moment GitHub requires you to be authenticated in order to download Android Libraries hosted in GitHub packages.   To do so you will need your **personal access token** and your GitHub **userid/username**.
+Add JitPack to your repositories and then depend on the artifact:
 
-Follow these steps to add the library as a dependency to your app.
+```groovy
+// settings.gradle or top-level build.gradle
+repositories {
+  maven { url 'https://jitpack.io' }
+}
 
-**Step 1** : Generate a Personal Access Token for GitHub [How to generate GitHub personal access token](https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line)
+// app/build.gradle (or your consuming module)
+dependencies {
+  // Use a released tag (see badges above for latest)
+  implementation 'com.github.BlueCodeSystems:opensrp-client-household:2.0.2-SNAPSHOT'
 
-**Step 2** : Store your GitHub — Personal Access Token details    
-Add these content to the **`local.properties`** file inside the root directory of your project.
-
-```properties 
-gpr.usr=YOUR_GITHUB_USERID 
-gpr.key=YOUR_PERSONAL_ACCESS_TOKEN 
-```   
-
-**Step 3** : Update `build.gradle` for the application module
-
-```groovy 
-
- def githubProperties = new Properties() //Read the github properties content 
- githubProperties.load(new FileInputStream(rootProject.file("local.properties")))    
- 
- android {    
-    //...    
-    // include inside the android closure    
-    repositories {    
-      maven {    
-              name = "GitHubPackages"    
-              /**    
-             * Configure path of the package repository on Github using the GITHUB_USER_ID and * Git Repository */    
-              url = uri("https://maven.pkg.github.com/BlueCodeSystems/opensrp-client-household")    
-              credentials {    
-                  /** get credentials from local.properties in root project folder file with    
-                 ** gpr.usr=GITHUB_USER_ID & gpr.key=PERSONAL_ACCESS_TOKEN otherwise ** Set env variable GPR_USER & GPR_API_KEY**/    
-                  username = githubProperties['gpr.usr'] ?: System.getenv("GPR_USER")    
-                  password = githubProperties['gpr.key'] ?: System.getenv("GPR_API_KEY")    
-              }    
-	      }   
-	  }     
-	//... 
-} 
-```   
-
-Add the library in the dependency section of your application's `build.gradle` file (obtain the latest version from [GitHub Packages](https://github.com/BlueCodeSystems/opensrp-client-household))
-
-```groovy 
-dependencies {    
-   //consume library - use the latest version available on github packages    
-   implementation "org.smartregister:opensrp-household:1.0.0-RELEASE"    
-   //....    
- } 
- ```   
+  // Or use the latest snapshot of master
+  // implementation 'com.github.BlueCodeSystems:opensrp-client-household:master-SNAPSHOT'
+}
+```
 
 ### Publish
 
 #### 1. Locally
-Run the following command to build the release `.aar` file and publish the library locally:
+Publish the AAR to your local Maven (`~/.m2/repository`) for downstream testing:
 
-```shell  
-./gradlew opensrp-household:assembleRelease && ./gradlew opensrp-household:publishHouseholdPublicationToMavenLocal
-```  
-
-or (will publish all publications)
-
-```shell  
-./gradlew opensrp-household:assembleRelease && ./gradlew opensrp-household:publishToMavenLocal
+```bash
+./gradlew :opensrp-household:publishToMavenLocal
 ```
 
-#### 1. Remotely
+Create a distributable ZIP (AAR + POM + sources/javadoc):
 
-Run the  following command to build the release `.aar`  and publish the library to GitHub Package Registry:
-
-```shell  
-./gradlew opensrp-household:assembleRelease && ./gradlew opensrp-household:publishHouseholdPublicationToGitHubPackagesRepository
-```  
-
-or (will publish all publications)
-
-```shell  
-./gradlew opensrp-household:assembleRelease && ./gradlew opensrp-household:publish
+```bash
+./gradlew :opensrp-household:packageReleaseZip
 ```
+
+#### 2. Sonatype (Maven Central)
+If you have credentials configured, you can publish snapshots/releases to Sonatype (s01):
+
+```bash
+# Snapshots
+./gradlew :opensrp-household:publish \
+  -PsonatypeUsername=YOUR_USER -PsonatypePassword=YOUR_TOKEN -PskipSigning=true
+
+# For releases, provide signing and omit -PskipSigning
+./gradlew :opensrp-household:publish \
+  -PsonatypeUsername=YOUR_USER -PsonatypePassword=YOUR_TOKEN \
+  -Psigning.gnupg.keyName=KEYID -Psigning.gnupg.passphrase=PASSPHRASE
+```
+
+#### 3. JitPack
+JitPack builds the project on demand from tags/commits. Use the badges at the top to pick a version or master-SNAPSHOT. No credentials are required for consumers.
 
 ## Configurability
 
