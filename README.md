@@ -22,7 +22,7 @@ repositories {
 // app/build.gradle (or your consuming module)
 dependencies {
   // Use a released tag (see badges above for latest)
-  implementation 'com.github.BlueCodeSystems:opensrp-client-household:2.0.2-SNAPSHOT'
+  implementation 'com.github.BlueCodeSystems:opensrp-client-household:2.1.0'
 
   // Or use the latest snapshot of master
   // implementation 'com.github.BlueCodeSystems:opensrp-client-household:master-SNAPSHOT'
