@@ -1,3 +1,9 @@
+<!-- JITPACK BADGES:START -->
+[![JitPack Latest](https://jitpack.io/v/BlueCodeSystems/opensrp-client-household.svg)](https://jitpack.io/#BlueCodeSystems/opensrp-client-household)
+[![Build for latest tag (2.0.2-SNAPSHOT)](https://jitpack.io/v/BlueCodeSystems/opensrp-client-household/2.0.2-SNAPSHOT.svg)](https://jitpack.io/#BlueCodeSystems/opensrp-client-household/2.0.2-SNAPSHOT)
+[![master-SNAPSHOT](https://jitpack.io/v/BlueCodeSystems/opensrp-client-household/master-SNAPSHOT.svg)](https://jitpack.io/#BlueCodeSystems/opensrp-client-household/master-SNAPSHOT)
+<!-- JITPACK BADGES:END -->
+
 # OpenSRP Client Household
 OpenSRP Client Household Library - Fork of OpenSRP Client Family Module
 
