@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.1.1] - 2025-09-12
+
+### Changed
+- Update artifact ID in gradle.properties to `opensrp-household` for publishing alignment.
+
 ## [2.1.0] - 2025-09-11
 
 ### Added
@@ -38,4 +43,3 @@ All notable changes to this project will be documented in this file.
 
 ## [2.0.2-SNAPSHOT] - 2025-??-??
 - Previous snapshot (tagged) prior to the toolchain upgrade.
-
