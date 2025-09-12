@@ -1,7 +1,7 @@
 <!-- JITPACK BADGES:START -->
-[![JitPack Latest](https://jitpack.io/v/BlueCodeSystems/opensrp-client-household.svg)](https://jitpack.io/#BlueCodeSystems/opensrp-client-household)
-[![Build for latest tag (2.0.2-SNAPSHOT)](https://jitpack.io/v/BlueCodeSystems/opensrp-client-household/2.0.2-SNAPSHOT.svg)](https://jitpack.io/#BlueCodeSystems/opensrp-client-household/2.0.2-SNAPSHOT)
-[![master-SNAPSHOT](https://jitpack.io/v/BlueCodeSystems/opensrp-client-household/master-SNAPSHOT.svg)](https://jitpack.io/#BlueCodeSystems/opensrp-client-household/master-SNAPSHOT)
+[![JitPack Latest](https://jitpack.io/v/BlueCodeSystems/opensrp-household.svg)](https://jitpack.io/#BlueCodeSystems/opensrp-household)
+[![Build for latest tag (2.0.2-SNAPSHOT)](https://jitpack.io/v/BlueCodeSystems/opensrp-household/2.0.2-SNAPSHOT.svg)](https://jitpack.io/#BlueCodeSystems/opensrp-household/2.0.2-SNAPSHOT)
+[![master-SNAPSHOT](https://jitpack.io/v/BlueCodeSystems/opensrp-household/master-SNAPSHOT.svg)](https://jitpack.io/#BlueCodeSystems/opensrp-household/master-SNAPSHOT)
 <!-- JITPACK BADGES:END -->
 
 # OpenSRP Client Household
@@ -9,7 +9,7 @@ OpenSRP Client Household Library - Fork of OpenSRP Client Family Module
 
 ### Get it from JitPack
 
-This library is published via [JitPack](https://jitpack.io/#BlueCodeSystems/opensrp-client-household).
+This library is published via [JitPack](https://jitpack.io/#BlueCodeSystems/opensrp-household).
 
 Add JitPack to your repositories and then depend on the artifact:
 
@@ -22,10 +22,10 @@ repositories {
 // app/build.gradle (or your consuming module)
 dependencies {
   // Use a released tag (see badges above for latest)
-  implementation 'com.github.BlueCodeSystems:opensrp-client-household:2.1.1'
+  implementation 'com.github.BlueCodeSystems:opensrp-household:2.1.1'
 
   // Or use the latest snapshot of master
-  // implementation 'com.github.BlueCodeSystems:opensrp-client-household:master-SNAPSHOT'
+  // implementation 'com.github.BlueCodeSystems:opensrp-household:master-SNAPSHOT'
 }
 ```
 
