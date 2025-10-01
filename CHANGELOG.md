@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.1.2] - 2025-10-01
+
+### Bug Fixes
+- Restore legacy drawable aliases and add missing compatibility assets so legacy clients continue resolving shared resources correctly.
+
+### Maintenance
+- Update repository naming to consistently reference `opensrp-household`.
+
 ## [2.1.1] - 2025-09-12
 
 ### Changed
