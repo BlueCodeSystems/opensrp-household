@@ -1,0 +1,5 @@
+<resources>
+    <!-- Legacy strings kept for backward compatibility with downstream apps -->
+    <string name="undo">Undo</string>
+    <string name="loading">Loading…</string>
+</resources>
