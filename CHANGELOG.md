@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.1.3] - 2025-10-01
+
+### Bug Fixes
+- Remove duplicate shim copies of `ImageRenderHelper` and `BaseProfileActivity` from the AAR so downstream apps rely on upstream OpenSRP implementations.
+
+### Documentation
+- Refresh README JitPack badges to surface the latest published artifacts.
+
 ## [2.1.2] - 2025-10-01
 
 ### Bug Fixes
