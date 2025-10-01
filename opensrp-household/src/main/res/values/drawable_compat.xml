@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Legacy drawable aliases to keep org.smartregister.family.R.drawable.* symbols available -->
+    <item name="ic_activity_notvisited" type="drawable">@mipmap/ic_activity_notvisited</item>
+    <item name="ic_activity_visited" type="drawable">@mipmap/ic_activity_visited</item>
+    <item name="ic_add_family" type="drawable">@mipmap/ic_add_family</item>
+    <item name="ic_add_family_active" type="drawable">@mipmap/ic_add_family_active</item>
+    <item name="ic_anc_pink" type="drawable">@mipmap/ic_anc_pink</item>
+    <item name="ic_arrow_forward" type="drawable">@mipmap/ic_arrow_forward</item>
+    <item name="ic_boy_child" type="drawable">@mipmap/ic_boy_child</item>
+    <item name="ic_child" type="drawable">@mipmap/ic_child</item>
+    <item name="ic_cross_white" type="drawable">@mipmap/ic_cross_white</item>
+    <item name="ic_family" type="drawable">@mipmap/ic_family</item>
+    <item name="ic_family_white" type="drawable">@mipmap/ic_family_white</item>
+    <item name="ic_girl_child" type="drawable">@mipmap/ic_girl_child</item>
+    <item name="ic_home" type="drawable">@mipmap/ic_home</item>
+    <item name="ic_home_active" type="drawable">@mipmap/ic_home_active</item>
+    <item name="ic_icon_home" type="drawable">@mipmap/ic_icon_home</item>
+    <item name="ic_jobaids" type="drawable">@mipmap/ic_jobaids</item>
+    <item name="ic_jobaids_active" type="drawable">@mipmap/ic_jobaids_active</item>
+    <item name="ic_launcher" type="drawable">@mipmap/ic_launcher</item>
+    <item name="ic_launcher_round" type="drawable">@mipmap/ic_launcher_round</item>
+    <item name="ic_member" type="drawable">@mipmap/ic_member</item>
+    <item name="ic_scan_qr" type="drawable">@mipmap/ic_scan_qr</item>
+    <item name="ic_scan_qr_active" type="drawable">@mipmap/ic_scan_qr_active</item>
+    <item name="row_pnc" type="drawable">@mipmap/row_pnc</item>
+</resources>
